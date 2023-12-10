@@ -3,7 +3,7 @@ import MainContent from "../../components/MainContent";
 
 const Home = () => {
     return (
-        <div className>
+        <div className="font-sans">
             <MainContent/>
         </div>
     );
