@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AiOutlineCopy, AiOutlineHome, AiOutlineLogin, AiOutlineMenuFold, AiOutlineMenuUnfold, AiOutlineUnorderedList, AiOutlineUser } from 'react-icons/ai';
 import { Layout, Menu, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import ContentAll from './ContentAll';
 
 const { Header, Sider, Content } = Layout;
 
@@ -58,7 +59,7 @@ const MainContent = () => {
                     />
                 </Header>
                 <Content className="m-3 p-4 bg-white" style={{ boxShadow: '0 0 3px #ccc', borderRadius: '10px' }}>
-                    Content
+                    <ContentAll/>
                 </Content>
             </Layout>
         </Layout>
