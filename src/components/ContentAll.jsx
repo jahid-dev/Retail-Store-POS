@@ -18,10 +18,10 @@ const ContentAll = () => {
         getAllItems()
     },[])
     return (
-        <Row>
+        <Row gutter={20}>
             {
                 itemsData.map((item) => {
-                    return <Col key={item} span={6}>
+                    return <Col key={item} span={6} xs={24} lg={6} md={12} sm={6}>
                         <ContentItems item = {item}/>
                     </Col>
                 })
