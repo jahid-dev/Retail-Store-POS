@@ -3,11 +3,13 @@ import { AiOutlineCopy, AiOutlineHome, AiOutlineLogin, AiOutlineMenuFold, AiOutl
 import { Layout, Menu, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import ContentAll from './ContentAll';
+import { useSelector } from 'react-redux';
 
 const { Header, Sider, Content } = Layout;
 
 const MainContent = () => {
     const [collapsed, setCollapsed] = useState(false);
+    const {cartItems} = useSelector(state => state.rootReducer)
 
     return (
         <Layout className="min-h-screen p-3">
@@ -59,7 +61,7 @@ const MainContent = () => {
                     />
                 </Header>
                 <Content className="m-3 p-4 bg-white" style={{ boxShadow: '0 0 3px #ccc', borderRadius: '10px' }}>
-                    <ContentAll/>
+                    <ContentAll />
                 </Content>
             </Layout>
         </Layout>

@@ -1,11 +1,25 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { RouterProvider } from 'react-router-dom'
+import { RouterProvider } from 'react-router'
 import router from './Router/MainRouter'
+import { createStore, combineReducers } from 'redux'
+import { rootReducer } from './redux/rootReducer'
+import { Provider } from 'react-redux'
+
+const finalReducer = combineReducers({
+  rootReducer: rootReducer
+})
+
+const initialState = {
+  rootReducer: {
+    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+  }
+}
+
+const store = createStore(finalReducer, initialState)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-      <RouterProvider router={router}/>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>,
 )
