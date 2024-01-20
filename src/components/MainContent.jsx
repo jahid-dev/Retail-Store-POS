@@ -16,10 +16,10 @@ import { useSelector } from "react-redux";
 const { Header, Sider, Content } = Layout;
 
 const MainContent = (props) => {
-
   const [collapsed, setCollapsed] = useState(false);
   const { cartItems, loading } = useSelector((state) => state.rootReducer);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const toggle = () => {
     setCollapsed(!collapsed);
   };
@@ -31,22 +31,25 @@ const MainContent = (props) => {
   return (
     <Layout>
       {loading && (
-        <div className="spinner">
-          <div
-          className="spinner-border"
-          role="status"
-        >
-        </div>
-        </div>
+     <div className="spinner">
+     <div className="spinner-border" role="status">
+       <div className="flex items-center justify-center">
+         <div className="w-40 h-40 border-t-4 border-b-4 border-[#248d24] rounded-full animate-spin" loading="lazy" style={{ animationDuration: '2s', animationTimingFunction: 'linear' }}></div>
+       </div>
+     </div>
+   </div>
+   
+   
+     
       )}
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">
-          <h3>{collapsed ? 'JP' : 'Jahid POS'}</h3>
+          <h3>{collapsed ? "JP" : "Jahid POS"}</h3>
         </div>
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={window.location.pathname}
+          defaultSelectedKeys={[window.location.pathname]}
         >
           <Menu.Item key="/" icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
@@ -63,10 +66,14 @@ const MainContent = (props) => {
           <Menu.Item key="/customers" icon={<UserOutlined />}>
             <Link to="/customers">Customers</Link>
           </Menu.Item>
-          <Menu.Item key="/logout" icon={<LoginOutlined />} onClick={()=>{
-            localStorage.removeItem('pos-user')
-            navigate('/login')
-          }}>
+          <Menu.Item
+            key="/logout"
+            icon={<LoginOutlined />}
+            onClick={() => {
+              localStorage.removeItem("pos-user");
+              navigate("/login");
+            }}
+          >
             Logout
           </Menu.Item>
         </Menu>
@@ -81,7 +88,7 @@ const MainContent = (props) => {
             }
           )}
           <div
-            className="cart-count flex align-middle"
+            className="cart-count flex items-center"
             onClick={() => navigate("/cart")}
           >
             <b>
@@ -96,7 +103,7 @@ const MainContent = (props) => {
           style={{
             margin: "10px",
             padding: 24,
-            minHeight:'80vh'
+            minHeight: "80vh",
           }}
         >
           {props.children}

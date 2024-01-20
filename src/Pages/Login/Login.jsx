@@ -35,9 +35,9 @@ useEffect(() => {
             layout="vertical"
             onFinish={onFinish}
           >
-            <h1><b>Jahid POS</b></h1>
+            <h1 className='text-2xl text-center'><b>Jahid POS</b></h1>
             <hr />
-            <h3>Login</h3>
+            <h3 className='text-xl text-center'>Login</h3>
           
             <Form.Item name="userId" label="User ID">
               <Input />

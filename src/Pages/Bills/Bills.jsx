@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
-import { Button, Form, Input, message, Modal, Select, Table } from "antd";
-import ReactToPrint from 'react-to-print';
+import {  EyeOutlined } from "@ant-design/icons";
+import { Button, Modal, Table } from "antd";
 import { useReactToPrint } from 'react-to-print';
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import MainContent from "../../components/MainContent";
@@ -108,7 +106,7 @@ const Bills =() => {
   return (
     <MainContent>
       <div className="flex justify-between">
-        <h3>Items</h3>
+        <h3 className="my-3 text-2xl">Bills</h3>
       </div>
       <Table columns={columns} dataSource={billsData} bordered />
 

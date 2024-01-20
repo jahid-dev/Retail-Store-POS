@@ -1,9 +1,10 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MainContent from "../../components/MainContent";
 import { useDispatch } from "react-redux";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Form, Input, message, Modal, Select, Table } from "antd";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import "../../resourses/items.css"; 
 
 const Items = () => {
   const axiosPublic = useAxiosPublic();
@@ -50,7 +51,7 @@ const Items = () => {
     {
       title: "Image",
       dataIndex: "image",
-      render: (image, record) => (
+      render: (image) => (
         <img src={image} alt="" height="60" width="60" />
       ),
     },
@@ -121,13 +122,14 @@ const Items = () => {
   return (
     <MainContent>
       <div className="flex justify-between">
-        <h3>Items</h3>
+        <h3 className="my-3 text-2xl">Items</h3>
         <Button type="primary" onClick={() => setAddEditModalVisibilty(true)}>
           Add Item
         </Button>
       </div>
-      <Table columns={columns} dataSource={itemsData} bordered />
-
+      <div className="table-responsive">
+        <Table columns={columns} dataSource={itemsData} bordered scroll={{ x: true }} />
+      </div>
       {addEditModalVisibilty && (
         <Modal
           onCancel={() => {
@@ -152,7 +154,6 @@ const Items = () => {
             <Form.Item name="image" label="Image URL">
               <Input />
             </Form.Item>
-
             <Form.Item name="category" label="Category">
               <Select>
                 <Select.Option value="fruits">Fruits</Select.Option>
@@ -160,7 +161,6 @@ const Items = () => {
                 <Select.Option value="meat">Meat</Select.Option>
               </Select>
             </Form.Item>
-
             <div className="flex justify-end">
               <Button htmlType="submit" type="primary">
                 SAVE

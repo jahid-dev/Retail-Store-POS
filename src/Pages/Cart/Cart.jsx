@@ -43,7 +43,7 @@ const Cart = () => {
     {
       title: "Image",
       dataIndex: "image",
-      render: (image, record) => (
+      render: (image) => (
         <img src={image} alt="" height="60" width="60" />
       ),
     },
@@ -112,7 +112,7 @@ const Cart = () => {
 
   return (
     <MainContent>
-      <h3>Cart</h3>
+      <h3 className="my-3 text-2xl">Cart</h3>
       <Table columns={columns} dataSource={cartItems} bordered pagination={false}/>
       <hr />
       <div className="flex justify-end flex-col items-end">
@@ -162,7 +162,7 @@ const Cart = () => {
             </h2>
           </div>
 
-          <div className="d-flex justify-content-end">
+          <div className="flex justify-end">
             <Button htmlType="submit" type="primary">
               GENERATE BILL
             </Button>

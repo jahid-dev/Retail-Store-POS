@@ -5,6 +5,7 @@ import router from './Router/MainRouter'
 import { createStore, combineReducers } from 'redux'
 import { rootReducer } from './redux/rootReducer'
 import { Provider } from 'react-redux'
+import reportWebVitals from './reportWebVitals'
 
 const finalReducer = combineReducers({
   rootReducer: rootReducer
@@ -23,3 +24,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </Provider>,
 )
+
+reportWebVitals();
